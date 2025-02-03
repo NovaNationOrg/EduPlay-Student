@@ -21,7 +21,18 @@ public class QRCodeProcessing : MonoBehaviour
         image.texture = webCamTexture;
         image.material.mainTexture = webCamTexture;
 
+        StartCoroutine(SetUpCamera());
+    }
+
+    private IEnumerator SetUpCamera()
+    {
+        // Let the camera initialize to prevent crashes
+        yield return new WaitForSeconds(0.5f);
+
         webCamTexture.Play();
+
+        UpdateCameraDisplay();
+        AdjustAspectRatio();
     }
 
     void Update()
@@ -29,9 +40,6 @@ public class QRCodeProcessing : MonoBehaviour
         if (webCamTexture.width > 100) // This is just a way to determine if the camera is initializaed
         {
             IBarcodeReader reader = new BarcodeReader();
-
-            UpdateCameraDisplay();
-            AdjustAspectRatio();
 
             var result = reader.Decode(webCamTexture.GetPixels32(), image.texture.width, image.texture.height);
             if (result != null)
