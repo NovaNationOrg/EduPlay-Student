@@ -3,7 +3,6 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
 using ZXing;
 
 public class QRCodeProcessing : MonoBehaviour
@@ -13,7 +12,8 @@ public class QRCodeProcessing : MonoBehaviour
     public TextMeshProUGUI text;
 
     public WebCamTexture webCamTexture;
-
+    DataProcessing d = new DataProcessing();
+    SceneSwitcher s = new SceneSwitcher();
     void Start()
     {
         webCamTexture = new WebCamTexture();
@@ -45,6 +45,10 @@ public class QRCodeProcessing : MonoBehaviour
             if (result != null)
             {
                 text.text = result.Text;
+
+                s.switchScreen1();
+
+               
 
                 // Do important stuff here or something
             }
