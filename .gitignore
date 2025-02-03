@@ -86,3 +86,6 @@ crashlytics-build.properties
 *_bak*.hipnc
 
 *.DS_Store
+
+# Text Mesh Pro files
+**/[Aa]ssets/TextMesh Pro/
