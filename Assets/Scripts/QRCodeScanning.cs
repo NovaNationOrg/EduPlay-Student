@@ -5,19 +5,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using ZXing;
 
-public class QRCodeProcessing : MonoBehaviour
+public class QRCodeScanning : MonoBehaviour
 {
 
     public RawImage image;
     public TextMeshProUGUI text;
-
     public WebCamTexture webCamTexture;
-    DataProcessing d = new DataProcessing();
-    SceneSwitcher s = new SceneSwitcher();
+    string[] commands = {"_jp_","_pr_","_add_","_mul_"};
+    SceneSwitcher sceneSwitcher = new SceneSwitcher();
     void Start()
     {
         webCamTexture = new WebCamTexture();
-
         image.texture = webCamTexture;
         image.material.mainTexture = webCamTexture;
 
@@ -44,13 +42,7 @@ public class QRCodeProcessing : MonoBehaviour
             var result = reader.Decode(webCamTexture.GetPixels32(), image.texture.width, image.texture.height);
             if (result != null)
             {
-                text.text = result.Text;
-
-                s.switchScreen1();
-
-               
-
-                // Do important stuff here or something
+                readData(result.Text);    
             }
         }
     }
@@ -82,4 +74,37 @@ public class QRCodeProcessing : MonoBehaviour
     {
         webCamTexture.Stop();
     }
+
+    private void readData(string qrData)
+    {
+        text.text = qrData;
+
+        if (isValidCommand(qrData))
+        {
+            DataProcessing.setContent(qrData);
+            sceneSwitcher.switchScreen1();
+
+        }
+    }
+
+    private bool isValidCommand(String text)
+    {
+        String code;
+        if (text.IndexOf("\n") != -1)
+           code = text.Substring(0,text.IndexOf("\n"));
+        else
+            code = text.Substring(0, text.IndexOf("\0"));
+
+
+        foreach (string comm in commands){
+            if (code == comm)
+                return true;
+        }
+
+        return false;
+
+        
+    }
+
+   
 }
