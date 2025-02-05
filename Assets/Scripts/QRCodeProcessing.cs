@@ -1,81 +1,54 @@
 using System;
-using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-using ZXing;
-
 public class QRCodeProcessing : MonoBehaviour
 {
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    public RawImage image;
-    public TextMeshProUGUI text;
+    private static string qrContent;
+    public Button returnButton;
+    public TextMeshProUGUI displayText;
 
-    public WebCamTexture webCamTexture;
+    // Update is called once per frame
 
-    void Start()
+
+    private void Start()
     {
-        webCamTexture = new WebCamTexture();
-
-        image.texture = webCamTexture;
-        image.material.mainTexture = webCamTexture;
-
-        StartCoroutine(SetUpCamera());
+        displayText.text = ProcessString(qrContent);
     }
 
-    private IEnumerator SetUpCamera()
+   
+
+    public void SceneReturn()
     {
-        // Let the camera initialize to prevent crashes
-        yield return new WaitForSeconds(0.5f);
+        SceneSwitcher.SwitchScreen2();
+    }
+    public static void SetContent(string content)
+    {
+        qrContent = content;
+    }
+ 
+   
+    private string ProcessString(string content)
+    {
+        
+        string[] str = content.Split("\n");
+        string dpText = "";
+        if (str[0] == "_jp_")
+            dpText = "Welcome to jeopardy";
+        else if (str[0] == "_pr_")
+            dpText = str[1];
+        else if (str[0] == "_add_")
+            dpText = (Int32.Parse(str[1]) + Int32.Parse(str[2])).ToString();
+        else if (str[0] == "_mul_")
+            dpText = (Int32.Parse(str[1]) * Int32.Parse(str[2])).ToString();
+        return dpText;
 
-        webCamTexture.Play();
-
-        UpdateCameraDisplay();
-        AdjustAspectRatio();
     }
 
-    void Update()
-    {
-        if (webCamTexture.width > 100) // This is just a way to determine if the camera is initializaed
-        {
-            IBarcodeReader reader = new BarcodeReader();
 
-            var result = reader.Decode(webCamTexture.GetPixels32(), image.texture.width, image.texture.height);
-            if (result != null)
-            {
-                text.text = result.Text;
 
-                // Do important stuff here or something
-            }
-        }
-    }
-
-    private void UpdateCameraDisplay()
-    {
-        // Get camera rotation and adjust UI accordingly
-        int rotationAngle = -webCamTexture.videoRotationAngle;
-
-        // If someone manages to get the device upside down...
-        if (webCamTexture.videoVerticallyMirrored)
-            rotationAngle += 180; 
-
-        image.rectTransform.localEulerAngles = new Vector3(0, 0, rotationAngle);
-    }
-
-    void AdjustAspectRatio()
-    {
-        float cameraAspect = (float)webCamTexture.width / webCamTexture.height;
-        float screenAspect = (float)Screen.width / Screen.height;
-
-        if (cameraAspect > screenAspect)
-            image.rectTransform.sizeDelta = new Vector2(Screen.width, Screen.width / cameraAspect);
-        else
-            image.rectTransform.sizeDelta = new Vector2(Screen.height * cameraAspect, Screen.height);
-    }
-
-    private void DisableReader()
-    {
-        webCamTexture.Stop();
-    }
 }

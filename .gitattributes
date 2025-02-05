@@ -8,3 +8,5 @@
 *.o filter=lfs diff=lfs merge=lfs -text
 *.bin filter=lfs diff=lfs merge=lfs -text
 .utmp/RelWithDebInfo/501l2r11/arm64-v8a/.ninja_deps filter=lfs diff=lfs merge=lfs -text
+.utmp/RelWithDebInfo/4826566n/arm64-v8a/.ninja_deps filter=lfs diff=lfs merge=lfs -text
+.utmp/Debug/48615jp4/arm64-v8a/.ninja_deps filter=lfs diff=lfs merge=lfs -text
