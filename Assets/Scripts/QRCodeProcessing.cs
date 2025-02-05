@@ -11,25 +11,28 @@ public class QRCodeProcessing : MonoBehaviour
     private static string qrContent;
     public Button returnButton;
     public TextMeshProUGUI displayText;
-    public SceneSwitcher sceneSwitcher = new();
 
     // Update is called once per frame
 
- 
 
-    private void Update()
+    private void Start()
     {
-
-        displayText.text = processString(qrContent);
+        displayText.text = ProcessString(qrContent);
     }
 
-    public static void setContent(string content)
+   
+
+    public void SceneReturn()
+    {
+        SceneSwitcher.SwitchScreen2();
+    }
+    public static void SetContent(string content)
     {
         qrContent = content;
     }
  
    
-    private string processString(string content)
+    private string ProcessString(string content)
     {
         
         string[] str = content.Split("\n");

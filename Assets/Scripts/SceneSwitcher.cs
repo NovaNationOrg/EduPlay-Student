@@ -1,19 +1,17 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneSwitcher : MonoBehaviour
+public static class SceneSwitcher 
 {
-   public void switchScreen1()
+   public static void SwitchScreen1()
     {
-        SceneManager.UnloadSceneAsync("SampleScene");
         SceneManager.LoadSceneAsync("SceneView2");
         
   
     }
 
-    public void switchScreen2()
+    public static void SwitchScreen2()
     {
-        SceneManager.UnloadSceneAsync("SceneView2");
         SceneManager.LoadSceneAsync("SampleScene");
     }
 

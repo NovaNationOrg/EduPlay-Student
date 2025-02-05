@@ -11,8 +11,7 @@ public class QRCodeScanning : MonoBehaviour
     public RawImage image;
     public TextMeshProUGUI text;
     public WebCamTexture webCamTexture;
-    string[] commands = {"_jp_","_pr_","_add_","_mul_"};
-    SceneSwitcher sceneSwitcher = new SceneSwitcher();
+    private readonly string[] commands = {"_jp_","_pr_","_add_","_mul_"};
     void Start()
     {
         webCamTexture = new WebCamTexture();
@@ -42,7 +41,7 @@ public class QRCodeScanning : MonoBehaviour
             var result = reader.Decode(webCamTexture.GetPixels32(), image.texture.width, image.texture.height);
             if (result != null)
             {
-                readData(result.Text);    
+                ReadData(result.Text);    
             }
         }
     }
@@ -75,28 +74,29 @@ public class QRCodeScanning : MonoBehaviour
         webCamTexture.Stop();
     }
 
-    private void readData(string qrData)
+    private void ReadData(string qrData)
     {
         text.text = qrData;
 
-        if (isValidCommand(qrData))
+        if (IsValidCommand(qrData))
         {
-            QRCodeProcessing.setContent(qrData);
-            sceneSwitcher.switchScreen1();
+           QRCodeProcessing.SetContent(qrData);
+           SceneSwitcher.SwitchScreen1();
 
         }
     }
 
-    private bool isValidCommand(String text)
+    private bool IsValidCommand(String command)
     {
         String code;
-        if (text.IndexOf("\n") != -1)
-           code = text.Substring(0,text.IndexOf("\n"));
+        if (command.IndexOf("\n") != -1)
+           code = command.Substring(0,command.IndexOf("\n"));
         else
-            code = text.Substring(0, text.IndexOf("\0"));
+            code = command.Substring(0, command.IndexOf("\0"));
 
 
-        foreach (string comm in commands){
+        foreach (string comm in commands)
+        {
             if (code == comm)
                 return true;
         }
