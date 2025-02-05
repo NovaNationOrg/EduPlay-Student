@@ -81,7 +81,7 @@ public class QRCodeScanning : MonoBehaviour
 
         if (isValidCommand(qrData))
         {
-            DataProcessing.setContent(qrData);
+            QRCodeProcessing.setContent(qrData);
             sceneSwitcher.switchScreen1();
 
         }
