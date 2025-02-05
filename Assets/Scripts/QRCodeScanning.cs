@@ -92,7 +92,7 @@ public class QRCodeScanning : MonoBehaviour
         if (command.IndexOf("\n") != -1)
            code = command.Substring(0,command.IndexOf("\n"));
         else
-            code = command.Substring(0, command.IndexOf("\0"));
+            code = command.Substring(0, command.Length);
 
 
         foreach (string comm in commands)
