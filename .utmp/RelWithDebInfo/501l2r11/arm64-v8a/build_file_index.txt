@@ -1,0 +1,3 @@
+D:\Unity\Unity Projects\Nova Nation PoC Prototype\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+D:\Unity\Unity Projects\Nova Nation PoC Prototype\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\FramePacing\CMakeLists.txt
+D:\Unity\Unity Projects\Nova Nation PoC Prototype\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt

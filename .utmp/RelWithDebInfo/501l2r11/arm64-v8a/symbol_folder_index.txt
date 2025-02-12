@@ -1,0 +1,1 @@
+D:\Unity\Unity Projects\Nova Nation PoC Prototype\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\build\intermediates\cxx\RelWithDebInfo\501l2r11\obj\arm64-v8a

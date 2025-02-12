@@ -1,0 +1,23 @@
+# ninja log v5
+1118	1828	7602302982239968	D:/Unity/Unity Projects/Nova Nation PoC Prototype/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/501l2r11/obj/arm64-v8a/libswappywrapper.so	146d8b2e42fd09e7
+4	3066	7602302996792462	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	79df27e8de35d1c1
+95	1115	7602302976658226	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	6cadf97f92b6d7df
+33	2244	7602302988376445	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	13bbd62bbd54b209
+3066	3244	7602302998738769	D:/Unity/Unity Projects/Nova Nation PoC Prototype/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/501l2r11/obj/arm64-v8a/libgame.so	504de1586342c5c1
+17	2724	7602302992272636	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	574ac4c2c62f133d
+54	2328	7602302989037675	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	ee7a8000969641ea
+65	2451	7602302990626752	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	c84faf236fe4f8e7
+11	2360	7602302989722208	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	94e59aead8cb0911
+27	2477	7602302989405171	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	fcd9e10e5846f990
+43	2798	7602302994204547	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	1817bd66b1788747
+103	856	7602479760684390	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	6cadf97f92b6d7df
+36	2557	7602479777050691	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	fcd9e10e5846f990
+76	2564	7602479777050691	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	13bbd62bbd54b209
+12	2567	7602479777066022	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	574ac4c2c62f133d
+26	2574	7602479777145977	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	79df27e8de35d1c1
+55	2577	7602479777066022	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	ee7a8000969641ea
+20	2579	7602479776242043	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	94e59aead8cb0911
+87	2584	7602479777125971	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	c84faf236fe4f8e7
+66	2585	7602479777115971	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	1817bd66b1788747
+857	2883	7602479781142618	D:/Unity/Unity Projects/Nova Nation PoC Prototype/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/501l2r11/obj/arm64-v8a/libswappywrapper.so	146d8b2e42fd09e7
+2586	3306	7602479785272954	D:/Unity/Unity Projects/Nova Nation PoC Prototype/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/501l2r11/obj/arm64-v8a/libgame.so	504de1586342c5c1
