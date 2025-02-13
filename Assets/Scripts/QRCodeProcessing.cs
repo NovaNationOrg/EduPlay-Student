@@ -38,7 +38,11 @@ public class QRCodeProcessing : MonoBehaviour
         string[] str = content.Split("\n");
         string dpText = "";
         if (str[0] == "_jp_")
+        {
+            loadJeopardy(str);
             dpText = "Welcome to jeopardy";
+
+        }
         else if (str[0] == "_pr_")
             dpText = str[1];
         else if (str[0] == "_add_")
@@ -49,6 +53,12 @@ public class QRCodeProcessing : MonoBehaviour
 
     }
 
+    private void loadJeopardy(string[] str)
+    {
+        JeopardyLoader jp = new JeopardyLoader();
+        jp.LoadThemes(str);
 
+        
+    }
 
 }
