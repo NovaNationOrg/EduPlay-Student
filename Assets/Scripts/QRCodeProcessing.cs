@@ -39,8 +39,10 @@ public class QRCodeProcessing : MonoBehaviour
         string dpText = "";
         if (str[0] == "_jp_")
         {
-            loadJeopardy(str);
-            dpText = "Welcome to jeopardy";
+            if (loadJeopardy(str))
+                dpText = "Welcome to jeopardy";
+            else
+                dpText = "Invalid Jeopardy Qr package";
 
         }
         else if (str[0] == "_pr_")
@@ -53,13 +55,20 @@ public class QRCodeProcessing : MonoBehaviour
 
     }
 
-    private void loadJeopardy(string[] str)
+    private bool loadJeopardy(string[] str)
     {
-        JeopardyLoader jp = new JeopardyLoader();
-        jp.LoadThemes(str);
-        jp.loadQuestions(str);
-
+        if(str.Length != 32)
+            return false;
         
+        JeopardyLoader jeopardyLoader = new JeopardyLoader();
+        jeopardyLoader.LoadThemes(str);
+        jeopardyLoader.loadQuestions(str);
+
+        TriviaQuestionBank.triviaData = jeopardyLoader.GetGameAttributes();
+
+        return true;
+
+
     }
 
 }

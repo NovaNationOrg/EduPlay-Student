@@ -20,7 +20,6 @@ public class JeopardyLoader
         ArrayList questionList = new();
         for (int i = 2; i < qrQuestions.Length; i++)
         {
-            
 
             if ((i - 2) % 6 == 0)
             {
@@ -34,5 +33,10 @@ public class JeopardyLoader
             }
             
         }
+    }
+
+    public Dictionary<string, ArrayList> GetGameAttributes()
+    {
+        return themeQuestions;
     }
 }
