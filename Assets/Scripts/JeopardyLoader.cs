@@ -15,5 +15,24 @@ public class JeopardyLoader
             themeQuestions[qrData[i]] = new ArrayList();
         }
     }
-   
+    public void loadQuestions(string[] qrQuestions)
+    {
+        ArrayList questionList = new();
+        for (int i = 2; i < qrQuestions.Length; i++)
+        {
+            
+
+            if ((i - 2) % 6 == 0)
+            {
+                questionList = themeQuestions[qrQuestions[i]];
+
+            }
+            else
+            {
+                questionList.Add(qrQuestions[i]);
+
+            }
+            
+        }
+    }
 }

@@ -57,6 +57,7 @@ public class QRCodeProcessing : MonoBehaviour
     {
         JeopardyLoader jp = new JeopardyLoader();
         jp.LoadThemes(str);
+        jp.loadQuestions(str);
 
         
     }
