@@ -57,14 +57,18 @@ public class QRCodeProcessing : MonoBehaviour
 
     private bool loadJeopardy(string[] str)
     {
-        if(str.Length != 32)
+        if(str.Length != 57)
             return false;
         
         JeopardyLoader jeopardyLoader = new JeopardyLoader();
         jeopardyLoader.LoadThemes(str);
         jeopardyLoader.loadQuestions(str);
 
+      
         TriviaQuestionBank.triviaData = jeopardyLoader.GetGameAttributes();
+
+        TriviaQuestionBank.GetAnswer("t2", "q1a");
+        TriviaQuestionBank.GetAnswer("t2", "q1b");
 
         return true;
 

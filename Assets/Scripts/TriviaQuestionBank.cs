@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public static class TriviaQuestionBank
 {
-    public static Dictionary<string, ArrayList> triviaData;
+    public static Dictionary<string, Dictionary<string, string>> triviaData;
 
     public static ArrayList GetCategories()
     {
@@ -18,6 +18,19 @@ public static class TriviaQuestionBank
 
     public static ArrayList GetQuestions(string category)
     {
-        return triviaData[category];
+        ArrayList questions = new();
+        foreach (string question in triviaData[category].Keys)
+        {
+            questions.Add(question);
+        }
+        return questions;
+    }
+
+    public static string GetAnswer(string category,string question)
+    {
+        Dictionary<string, string> questions = triviaData[category];
+        string answer = questions[question];
+
+        return answer;
     }
 }
