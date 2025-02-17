@@ -28,6 +28,18 @@ public class QRCodeScanning : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(RequestCameraPermission());
+    }
+
+    IEnumerator RequestCameraPermission()
+    {
+        if (!Application.HasUserAuthorization(UserAuthorization.WebCam))
+            yield return Application.RequestUserAuthorization(UserAuthorization.WebCam);
+
+        // Let the app wait each frame until the user accepts the permission
+        while (!Application.HasUserAuthorization(UserAuthorization.WebCam))
+            yield return null;
+
         devices = WebCamTexture.devices.ToList<WebCamDevice>();
 
         if (devices.Count > 0)
