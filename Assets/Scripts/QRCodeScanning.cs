@@ -10,9 +10,8 @@ using ZXing;
 
 public class QRCodeScanning : MonoBehaviour
 {
-
     public RawImage image;
-    public TextMeshProUGUI text;
+    public TextMeshProUGUI infoText;
 
     public List<WebCamDevice> devices = new();
     public WebCamTexture mainWebCamTexture;
@@ -26,9 +25,25 @@ public class QRCodeScanning : MonoBehaviour
     private bool isScanning = false;
     private readonly string[] commands = { "_jp_", "_pr_", "_add_", "_mul_" };
 
-    void Start()
+    public Button startButton;
+
+    void Start() { StartCoroutine(RequestCameraPermission()); }
+
+    IEnumerator RequestCameraPermission()
     {
+        if (!Application.HasUserAuthorization(UserAuthorization.WebCam))
+            yield return Application.RequestUserAuthorization(UserAuthorization.WebCam);
+
+        // Let the app wait each frame until the user accepts the permission
+        while (!Application.HasUserAuthorization(UserAuthorization.WebCam))
+            yield return null;
+
         devices = WebCamTexture.devices.ToList<WebCamDevice>();
+
+        if (startButton != null)
+            startButton.onClick.AddListener(TransferScenes);
+        else
+            Debug.LogError("Start Button was not set!");
 
         if (devices.Count > 0)
         {
@@ -49,14 +64,18 @@ public class QRCodeScanning : MonoBehaviour
             // To accommodate those individuals using this app on a PC
             if (onLaptop)
             {
-                text.text = "This is meant for phones, but you chillin'";
+                infoText.gameObject.SetActive(true);
+                infoText.text = "This is meant for phones, but you chillin'";
+
                 deviceName = devices[0].name;
                 SetupWebCamTexture(devices[0].name);
             }
         }
         else
         {
-            text.text = "No available camera found on device!";
+            infoText.gameObject.SetActive(true);
+            infoText.text = "No available camera found on device!";
+
             image.gameObject.SetActive(false);
         }
     }
@@ -82,7 +101,6 @@ public class QRCodeScanning : MonoBehaviour
         mainWebCamTexture.Play();
 
         UpdateCameraDisplay();
-        AdjustAspectRatio();
 
         StartCoroutine(ScanBarcode());
     }
@@ -123,32 +141,22 @@ public class QRCodeScanning : MonoBehaviour
         image.rectTransform.localEulerAngles = new Vector3(0, 0, rotationAngle);
     }
 
-    void AdjustAspectRatio()
-    {
-        float cameraAspect = (float)mainWebCamTexture.width / mainWebCamTexture.height;
-        float screenAspect = (float)Screen.width / Screen.height;
-
-        if (cameraAspect > screenAspect)
-            image.rectTransform.sizeDelta = new Vector2(Screen.width, Screen.width / cameraAspect);
-        else
-            image.rectTransform.sizeDelta = new Vector2(Screen.height * cameraAspect, Screen.height);
-    }
-
-    private void DisableReader()
-    {
-        mainWebCamTexture.Stop();
-    }
+    private void DisableReader() { mainWebCamTexture.Stop(); }
 
     private void ReadData(string qrData)
     {
-        text.text = qrData;
+        infoText.text = qrData;
 
         if (IsValidCommand(qrData))
         {
+            infoText.gameObject.SetActive(false);
+            startButton.gameObject.SetActive(true);
+
             QRCodeProcessing.SetContent(qrData);
-            SceneSwitcher.SwitchScreen1();
         }
     }
+
+    private void TransferScenes() { SceneSwitcher.SwitchGameScene("EduPlayJeopardy"); }
 
     private bool IsValidCommand(String command)
     {
@@ -157,7 +165,6 @@ public class QRCodeScanning : MonoBehaviour
             code = command.Substring(0, command.IndexOf("\n"));
         else
             code = command.Substring(0, command.Length);
-
 
         foreach (string comm in commands)
         {

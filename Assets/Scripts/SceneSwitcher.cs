@@ -3,16 +3,6 @@ using UnityEngine.SceneManagement;
 
 public static class SceneSwitcher 
 {
-   public static void SwitchScreen1()
-    {
-        SceneManager.LoadSceneAsync("SceneView2");
-        
-  
-    }
-
-    public static void SwitchScreen2()
-    {
-        SceneManager.LoadSceneAsync("SampleScene");
-    }
-
+   public static void SwitchGameScene(string sceneName) { SceneManager.LoadSceneAsync(sceneName); }
+   public static void SwitchScanScene() { SceneManager.LoadSceneAsync("EduPlayStudent"); }
 }
