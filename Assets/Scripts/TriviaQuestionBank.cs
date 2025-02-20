@@ -9,10 +9,15 @@ public static class TriviaQuestionBank
     public static ArrayList GetCategories()
     {
         ArrayList categories = new();
-        foreach(string category in triviaData.Keys)
+
+        if (triviaData != null)
         {
-            categories.Add(category);
+            foreach (string category in triviaData.Keys)
+            {
+                categories.Add(category);
+            }
         }
+        
         return categories;
     }
 
