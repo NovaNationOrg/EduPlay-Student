@@ -15,7 +15,7 @@ public class JeopardyLoader
             themeQuestions[qrData[i]] = new ();
         }
     }
-    public void loadQuestions(string[] qrQuestions)
+    public void LoadQuestions(string[] qrQuestions)
     {
         Dictionary<string, string> questionList = new();
         for (int i = 2; i < qrQuestions.Length; i++)
@@ -30,9 +30,7 @@ public class JeopardyLoader
             {
                 questionList[qrQuestions[i]] = qrQuestions[i+1];
                 i++;
-
             }
-            
         }
     }
 
