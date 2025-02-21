@@ -7,7 +7,7 @@
             </ui:VisualElement>
             <ui:Label text="Name" name="Name-Label" class="name-label" style="border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; background-size: 50px 100%;" />
             <ui:TextField placeholder-text="Enter Your Name" class="textbox" style="color: rgb(0, 0, 0);" />
-            <ui:Button text="Join Game" class="join-button" style="min-width: 10%; background-color: rgb(39, 139, 254); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" />
+            <ui:Button text="Join Game" name="joinButton" class="join-button" style="min-width: 10%; background-color: rgb(39, 139, 254); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" />
         </ui:VisualElement>
         <ui:VisualElement class="bottom-segment" style="height: 40%; flex-direction: column;">
             <ui:VisualElement name="VisualElement" class="upper-recent-section" style="flex-grow: 0;">

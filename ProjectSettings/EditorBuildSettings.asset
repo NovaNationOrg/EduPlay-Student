@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/LandingPage.unity
+    guid: b160f3119f6cc6e41a713ee9c26883cc
+  - enabled: 1
     path: Assets/Scenes/EduPlayStudent.unity
     guid: a567add0986bcca40a35514d354f1304
   - enabled: 1

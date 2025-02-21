@@ -26,6 +26,7 @@ public class QRCodeScanning : MonoBehaviour
     private readonly string[] commands = { "_jp_", "_pr_", "_add_", "_mul_" };
 
     public Button startButton;
+    public Button returnButton;
 
     void Start() { StartCoroutine(RequestCameraPermission()); }
 
@@ -39,7 +40,7 @@ public class QRCodeScanning : MonoBehaviour
             yield return null;
 
         devices = WebCamTexture.devices.ToList<WebCamDevice>();
-
+        returnButton.onClick.AddListener(ReturnScene);
         if (startButton != null)
             startButton.onClick.AddListener(TransferScenes);
         else
@@ -157,6 +158,7 @@ public class QRCodeScanning : MonoBehaviour
     }
 
     private void TransferScenes() { SceneSwitcher.SwitchGameScene("EduPlayJeopardy"); }
+    private void ReturnScene() { SceneSwitcher.SwitchGameScene("LandingPage"); }
 
     private bool IsValidCommand(String command)
     {
