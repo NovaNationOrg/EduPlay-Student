@@ -1,0 +1,104 @@
+.panel {
+    background-color: rgba(56, 56, 56, 0);
+    background-image: none;
+}
+
+.name-label {
+    padding-top: 210px;
+    padding-right: 4px;
+    padding-bottom: 2px;
+    padding-left: 90px;
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    width: 220px;
+    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/static/Inter_18pt-Bold.ttf?fileID=12800000&guid=7b3638f9c00dee2479559028f51f74d7&type=3#Inter_18pt-Bold");
+}
+
+.textbox {
+    margin-right: 60px;
+    margin-left: 60px;
+    border-top-left-radius: 22px;
+    border-top-right-radius: 22px;
+    border-bottom-right-radius: 22px;
+    border-bottom-left-radius: 22px;
+    font-size: 50px;
+    color: rgb(163, 163, 163);
+    margin-top: 22px;
+    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/static/Inter_18pt-Bold.ttf?fileID=12800000&guid=7b3638f9c00dee2479559028f51f74d7&type=3#Inter_18pt-Bold");
+}
+
+.join-button {
+    margin-top: 140px;
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/static/Inter_18pt-Bold.ttf?fileID=12800000&guid=7b3638f9c00dee2479559028f51f74d7&type=3#Inter_18pt-Bold");
+    -unity-text-align: upper-center;
+    margin-left: 0;
+    align-self: center;
+    width: 550px;
+    height: 90px;
+    align-content: flex-start;
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+    border-bottom-right-radius: 28px;
+    border-bottom-left-radius: 28px;
+}
+
+.recentLabel {
+    text-size: 40px;
+    font-size: 50px;
+    width: 50%;
+    height: 0;
+}
+
+.view-all-button {
+    width: 21%;
+    height: 50px;
+    margin-left: 20%;
+    margin-right: 0;
+    background-color: rgb(44, 44, 44);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    font-size: 44px;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 15px;
+}
+
+.top-segment {
+    width: 100%;
+    height: 50%;
+}
+
+.header {
+    font-size: 60px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 180px;
+    padding-right: 0;
+    padding-bottom: 5px;
+    padding-left: 0;
+    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/FontdinerSwanky-Regular.ttf?fileID=12800000&guid=e49cbe3f723c3a04882a616ea8991ef2&type=3#FontdinerSwanky-Regular");
+    -unity-text-outline-width: 0;
+    color: rgb(255, 255, 255);
+    -unity-text-align: upper-center;
+    background-image: resource('HeaderBg');
+}
+
+.bottom-segment {
+    height: 50%;
+    border-top-color: white;
+    border-top-width: 2px;
+    color: rgb(255, 255, 255);
+}
+
+.upper-recent-section {
+    flex-grow: 1;
+    flex-direction: row;
+    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/static/Inter_18pt-Bold.ttf?fileID=12800000&guid=7b3638f9c00dee2479559028f51f74d7&type=3#Inter_18pt-Bold");
+}

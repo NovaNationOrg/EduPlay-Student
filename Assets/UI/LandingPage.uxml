@@ -1,0 +1,20 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/landing-page.uss?fileID=7433441132597879392&amp;guid=dc32cc8b3f8045846929d71c86808e7e&amp;type=3#landing-page" />
+    <ui:VisualElement name="Panel" class="panel" style="flex-grow: 1;">
+        <ui:VisualElement name="VisualElement" class="top-segment" style="height: 65%;">
+            <ui:VisualElement name="Header" class="header">
+                <ui:Label text="EduPlay" name="platform-title" style="background-size: 100% 100%;" />
+            </ui:VisualElement>
+            <ui:Label text="Name" name="Name-Label" class="name-label" style="border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; background-size: 50px 100%;" />
+            <ui:TextField placeholder-text="Enter Your Name" class="textbox" style="color: rgb(0, 0, 0);" />
+            <ui:Button text="Join Game" name="joinButton" class="join-button" style="min-width: 10%; background-color: rgb(39, 139, 254); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" />
+        </ui:VisualElement>
+        <ui:VisualElement class="bottom-segment" style="height: 40%; flex-direction: column;">
+            <ui:VisualElement name="VisualElement" class="upper-recent-section" style="flex-grow: 0;">
+                <ui:Label text="Recent Games" class="recentLabel" style="margin-left: 4%;" />
+                <ui:Button text="view all" class="view-all-button" />
+            </ui:VisualElement>
+            <ui:ListView style="border-left-color: rgba(91, 36, 36, 0); border-right-color: rgba(91, 36, 36, 0); border-top-color: rgba(91, 36, 36, 0); border-bottom-color: rgba(91, 36, 36, 0); border-top-width: 20px; border-right-width: 20px; border-bottom-width: 20px; border-left-width: 20px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
